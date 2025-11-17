@@ -14,7 +14,7 @@ export class GalleryService {
     let idCounter = 1;
 
     const data = await firstValueFrom(
-      this.http.get<{ [key: string]: string[] }>('/assets/images/gallery.json')
+      this.http.get<{ [key: string]: string[] }>('/Static-Photography-website/assets/images/gallery.json')
     );
 
     Object.keys(data).forEach(category => {
