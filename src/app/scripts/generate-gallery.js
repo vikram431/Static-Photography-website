@@ -2,23 +2,34 @@
 const fs = require('fs');
 const path = require('path');
 
-// Since __dirname = src/app/scripts, go up one level to src/app
-// const assetsFolder = path.join(__dirname, '../assets/images');
+// Point to assets/images directory
 const assetsFolder = path.join(__dirname, '../../assets/images');
 
-const categories = ['fashion', 'beauty'];
+// Final output object
 const output = {};
 
-categories.forEach(category => {
-  const folderPath = path.join(assetsFolder, category); // e.g., src/app/assets/images/fashion
-  if (!fs.existsSync(folderPath)) {
-    console.error(`Folder does not exist: ${folderPath}`);
-    return;
+// Read everything inside /assets/images
+const items = fs.readdirSync(assetsFolder, { withFileTypes: true });
+
+// Loop all folders dynamically
+items.forEach(item => {
+  if (item.isDirectory()) {
+    const category = item.name; // folder name becomes category
+
+    const categoryPath = path.join(assetsFolder, category);
+
+    // Read files inside the folder
+    const files = fs.readdirSync(categoryPath)
+      .filter(file => /\.(jpg|jpeg|png|svg|webp|jfif)$/i.test(file));
+
+    output[category] = files;
   }
-  const files = fs.readdirSync(folderPath).filter(file => /\.(jpg|jpeg|png|svg)$/i.test(file));
-  output[category] = files;
 });
 
+// Output file path
 const outputPath = path.join(assetsFolder, 'gallery.json');
+
+// Write JSON
 fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
-console.log(`Gallery JSON generated at ${outputPath}`);
+
+console.log(`Gallery JSON generated at: ${outputPath}`);
