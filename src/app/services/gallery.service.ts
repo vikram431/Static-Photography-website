@@ -21,7 +21,7 @@ export class GalleryService {
       data[category].forEach(file => {
         images.push({
           id: idCounter++,
-          src: `/assets/images/${category}/${file}`,
+          src: `/Static-Photography-website/assets/images/${category}/${file}`,
           alt: `${category} image`,
           category,
           aspectRatio: '1'
