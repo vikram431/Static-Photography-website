@@ -1,4 +1,14 @@
 {
+  "beauty": [
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg"
+  ],
+  "ecommerce": [
+    "download (2).jfif",
+    "download (3).jfif"
+  ],
   "fashion": [
     "hero-image.jpg",
     "logo-full.png",
@@ -6,10 +16,16 @@
     "opopop.jpg",
     "Untitleddesign.png"
   ],
-  "beauty": [
-    "1.jpg",
-    "2.jpg",
-    "3.jpg",
-    "4.jpg"
+  "kids": [
+    "download (1).jfif",
+    "download.jfif"
+  ],
+  "product": [
+    "Bottle-Advertising-photography.jpg",
+    "product1.jpeg"
+  ],
+  "wedding": [
+    "DSC05563-scaled-2-1-1366x2048.jpeg",
+    "KB301899-scaled-2-1-18-1.jpeg"
   ]
 }
