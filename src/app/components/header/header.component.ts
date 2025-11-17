@@ -15,4 +15,11 @@ export class HeaderComponent {
     this.router.navigate([path]);
     // this.mobileMenuOpen = false;
   }
+
+  menuOpen = false;
+
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
+
 }
